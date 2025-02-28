@@ -67,7 +67,53 @@ namespace P01DAW_2022AE650_2023A651_reservas.Controllers
                 return Unauthorized("Credenciales inválidas.");
             }
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> ActualizarUsuario(int id, [FromBody] usuarios usuarioActualizado)
+        {
+            if (id != usuarioActualizado.usuario_id)
+            {
+                return BadRequest();
+            }
+
+            _usuariosContexto.Entry(usuarioActualizado).State = EntityState.Modified;
+
+            try
+            {
+                await _usuariosContexto.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_usuariosContexto.usuarios.Any(e => e.usuario_id == id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> EliminarUsuario(int id)
+        {
+            var usuario = await _usuariosContexto.usuarios.FindAsync(id);
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+
+            _usuariosContexto.usuarios.Remove(usuario);
+            await _usuariosContexto.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
-
-
 }
+
+
+
