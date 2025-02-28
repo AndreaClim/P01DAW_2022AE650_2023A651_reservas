@@ -1,6 +1,5 @@
 ﻿using P01DAW_2022AE650_2023A651_reservas.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
 
 namespace P01DAW_2022AE650_2023A651_reservas.Controllers
 {
