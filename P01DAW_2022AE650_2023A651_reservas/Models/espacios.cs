@@ -2,7 +2,8 @@
 {
     public class espacios
     {
-        public int id { get; set; }
+        public int espacios_id { get; set; }
+        public int sucursales_id { get; set; }
         public int numero { get; set; }
         public string ubicacion { get; set; }
         public double costo { get; set; }
