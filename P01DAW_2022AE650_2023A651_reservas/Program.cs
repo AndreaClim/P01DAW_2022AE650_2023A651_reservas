@@ -10,18 +10,24 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
-
-builder.Services.AddControllers();
+builder.Services.AddDbContext<usuariosContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("parqueoDbConnection")));
 
 builder.Services.AddDbContext<espaciosContext>(options =>
-    options.UseSqlServer(app.Configuration.GetConnectionString("espaciosContext")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("parqueoDbConnection")));
+
 builder.Services.AddDbContext<reservasContext>(options =>
-    options.UseSqlServer(app.Configuration.GetConnectionString("reservasContext")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("parquoDbConnection")));
+
 builder.Services.AddDbContext<sucursalesContext>(options =>
-    options.UseSqlServer(app.Configuration.GetConnectionString("sucursalesContext")));
-builder.Services.AddDbContext<usuariosContext>(options =>
-    options.UseSqlServer(app.Configuration.GetConnectionString("usuariosContext")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("parqueoDbConnection")));
+
+
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
