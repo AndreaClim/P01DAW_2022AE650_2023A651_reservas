@@ -11,5 +11,6 @@ namespace P01DAW_2022AE650_2023A651_reservas.Models
         public string ubicacion { get; set; }
         public double costo { get; set; }
         public string estado { get; set; }
+        public DateTime? fecha { get; set; }
     }
 }

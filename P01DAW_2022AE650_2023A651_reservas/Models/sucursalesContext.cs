@@ -10,5 +10,7 @@ namespace P01DAW_2022AE650_2023A651_reservas.Models
 
         }
         public DbSet<sucursales> sucursales { get; set; }
+
+        public DbSet<espacios> espacios { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace L01_2022AE650_2023CA651.Models
+namespace P01DAW_2022AE650_2023A651_reservas.Models
 {
     public class sucursales
     {
