@@ -1,4 +1,4 @@
-﻿using L01_2022AE650_2023CA651.Models;
+﻿using P01DAW_2022AE650_2023A651_reservas.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 namespace P01DAW_2022AE650_2023A651_reservas.Models
